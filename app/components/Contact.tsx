@@ -122,7 +122,10 @@ export default function Contact() {
         </div>
       </section>
 
-      <footer className="bg-bg-deep px-6 py-10 text-white/60">
+      <footer
+        className="bg-bg-deep px-6 pt-10 text-white/60"
+        style={{ paddingBottom: "max(2.5rem, env(safe-area-inset-bottom))" }}
+      >
         <div className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-sm font-semibold text-white">
