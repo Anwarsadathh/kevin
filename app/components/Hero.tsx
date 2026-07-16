@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Reveal from "./Reveal";
 import Counter from "./Counter";
@@ -36,15 +36,24 @@ const nameWord = {
 
 export default function Hero() {
   const [imgOk, setImgOk] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const { scrollY } = useScroll();
   const bgY = useTransform(scrollY, [0, 900], [0, 260]);
   const fgY = useTransform(scrollY, [0, 900], [0, -80]);
   const fade = useTransform(scrollY, [0, 500], [1, 0]);
 
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
   return (
     <section id="top" className="relative flex min-h-[100svh] items-center overflow-hidden bg-bg-deep">
-      {/* parallax background layer */}
-      <motion.div style={{ y: bgY }} className="absolute inset-0">
+      {/* parallax background layer (disabled on mobile to avoid a shifting bottom edge while scrolling) */}
+      <motion.div style={{ y: isMobile ? 0 : bgY }} className="absolute inset-0">
         {imgOk && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -132,11 +141,6 @@ export default function Hero() {
           </dl>
         </Reveal>
       </motion.div>
-
-      {/* scroll cue */}
-      <div className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2">
-        <div className="scroll-cue" aria-hidden />
-      </div>
 
       {/* logo strip pinned to hero bottom */}
       <div className="absolute inset-x-0 bottom-0 z-10 hidden border-t border-white/10 bg-black/25 backdrop-blur-md md:block">
