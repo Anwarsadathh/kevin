@@ -37,7 +37,7 @@ export default function QuoteBand() {
             embracing innovation, and delivering value with integrity.
           </blockquote>
           <p className="mt-7 text-sm text-white/50">
-            Kevin C. Philipose · Founder, Kwin Syndicate Holdings
+            Kevin C Philipose · Founder, Kwin Syndicate Holdings
           </p>
         </Reveal>
       </div>

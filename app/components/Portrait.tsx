@@ -16,7 +16,7 @@ export default function Portrait() {
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src="/portrait.jpg"
-          alt="Kevin C. Philipose"
+          alt="Kevin C Philipose"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
           onError={() => setMissing(true)}
         />

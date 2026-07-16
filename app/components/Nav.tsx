@@ -44,7 +44,7 @@ export default function Nav() {
               scrolled ? "text-ink" : "text-white"
             }`}
           >
-            Kevin C. Philipose
+            Kevin C Philipose
           </span>
         </a>
         <div className="hidden items-center gap-7 md:flex">

@@ -77,7 +77,7 @@ export default function Contact() {
 
         <div className="mt-20 flex flex-col gap-4 border-t border-line pt-8 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="font-semibold">Kevin C. Philipose</p>
+            <p className="font-semibold">Kevin C Philipose</p>
             <p className="mt-1 text-sm text-ink-2">
               Founder, Kwin Syndicate Holdings Pvt. Ltd. · Founder &amp; CEO,
               LearnScape Edu · Founder, Invest Better · Founder, Caffè Latte
@@ -85,7 +85,7 @@ export default function Contact() {
             </p>
           </div>
           <p className="text-xs text-ink-3">
-            © {new Date().getFullYear()} Kevin C. Philipose. All rights
+            © {new Date().getFullYear()} Kevin C Philipose. All rights
             reserved.
           </p>
         </div>
