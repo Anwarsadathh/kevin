@@ -104,7 +104,7 @@ export default function Hero() {
         </motion.h1>
 
         <Reveal delay={0.65}>
-          <p className="mt-5 font-mono text-lg tracking-wide text-white/80 md:text-2xl">
+          <p className="mt-5 text-xl tracking-wide text-white/80 md:text-3xl">
             <Typed />
           </p>
         </Reveal>

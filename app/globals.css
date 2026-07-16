@@ -31,6 +31,7 @@
   --color-line-2: var(--line-2);
   --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
 }
 
 * {
@@ -40,12 +41,14 @@ html {
   scroll-behavior: smooth;
   color-scheme: light only;
   background: var(--bg);
+  overflow-x: hidden;
 }
 body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 ::selection {
   background: var(--accent);
@@ -269,6 +272,13 @@ h3 {
 @keyframes caret-blink { 0%,45%{opacity:1} 50%,100%{opacity:0} }
 .caret { display:inline-block; margin-left:2px; animation: caret-blink 1s steps(1) infinite; color: rgba(255,255,255,.7); }
 
+/* wave animation for the typed role letters */
+@keyframes letter-wave {
+  0%, 100% { transform: translateY(0) scale(1); color: #7dd3fc; text-shadow: 0 0 0 rgba(125,211,252,0); }
+  50% { transform: translateY(-13px) scale(1.18); color: #ffffff; text-shadow: 0 0 16px rgba(125,211,252,0.9); }
+}
+.letter-wave { display: inline-block; animation: letter-wave 1.5s ease-in-out infinite; }
+
 /* scroll cue — mouse outline with falling dot */
 .scroll-cue { width: 26px; height: 42px; border: 2px solid rgba(255,255,255,.4); border-radius: 14px; position: relative; }
 .scroll-cue::after { content:""; position:absolute; left:50%; top:8px; width:4px; height:8px; margin-left:-2px;
@@ -286,7 +296,7 @@ h3 {
 @supports (-webkit-touch-callout: none) { .band-fixed { background-attachment: scroll; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .orb-a,.orb-b,.orb-c,.caret,.scroll-cue::after { animation: none; }
+  .orb-a,.orb-b,.orb-c,.caret,.scroll-cue::after,.letter-wave { animation: none; }
   .bar-fill { transform: scaleX(var(--w,1)); transition: none; }
   .btn-hero-solid:hover,.btn-hero-ghost:hover { transform: none; }
 }

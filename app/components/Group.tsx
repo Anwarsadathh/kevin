@@ -81,7 +81,6 @@ export default function Group() {
                 name={PARENT.short}
                 initials={PARENT.initials}
                 size={42}
-                invert
                 className="rounded-[7px]"
               />
             </div>

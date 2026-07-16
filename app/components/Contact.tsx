@@ -141,13 +141,7 @@ export default function Contact() {
             <p className="text-xs text-white/35">
               © {new Date().getFullYear()} Kevin C Philipose
             </p>
-            <a
-              href="#top"
-              className="flex items-center gap-1.5 text-xs font-medium text-white/60 transition-colors hover:text-white"
-            >
-              Back to top
-              <span aria-hidden>↑</span>
-            </a>
+          
           </div>
         </div>
       </footer>

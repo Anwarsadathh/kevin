@@ -37,8 +37,16 @@ export default function Typed() {
   }, [text, del, i]);
 
   return (
-    <span className="text-sky-300">
-      {text}
+    <span className="font-display font-bold tracking-wide text-sky-300">
+      {text.split("").map((ch, idx) => (
+        <span
+          key={idx}
+          className="letter-wave"
+          style={{ animationDelay: `${idx * 0.07}s` }}
+        >
+          {ch === " " ? " " : ch}
+        </span>
+      ))}
       <span className="caret" aria-hidden>
         |
       </span>
