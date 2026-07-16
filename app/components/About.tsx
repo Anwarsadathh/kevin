@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useInView } from "framer-motion";
-import Reveal from "./Reveal";
+import Reveal, { RevealSide } from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
 const SKILLS: [string, number][] = [
@@ -25,7 +25,7 @@ export default function About() {
   return (
     <section id="about" className="px-6 py-28">
       <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-2">
-        <div>
+        <RevealSide from="left">
           <SectionHeading eyebrow="About">
             Ecosystems, not just companies
           </SectionHeading>
@@ -51,12 +51,12 @@ export default function About() {
               ))}
             </ul>
           </Reveal>
-        </div>
+        </RevealSide>
 
-        <Reveal delay={0.12}>
+        <RevealSide from="right" delay={0.12}>
           <div
             ref={ref}
-            className={`rounded-2xl border border-line bg-white p-8 shadow-[0_18px_44px_-20px_rgba(15,23,42,0.12)] ${
+            className={`rounded-2xl border border-line bg-white p-8 shadow-[0_18px_44px_-20px_rgba(15,23,42,0.12)] transition-transform duration-500 hover:-translate-y-1.5 ${
               inView ? "in-view" : ""
             }`}
           >
@@ -84,7 +84,7 @@ export default function About() {
               consulting, and hospitality.&rdquo;
             </p>
           </div>
-        </Reveal>
+        </RevealSide>
       </div>
     </section>
   );

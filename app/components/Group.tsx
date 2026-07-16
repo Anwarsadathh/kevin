@@ -1,4 +1,7 @@
-import Reveal from "./Reveal";
+"use client";
+
+import { motion } from "framer-motion";
+import Reveal, { staggerItem } from "./Reveal";
 import Logo from "./Logo";
 import { COMPANIES, PARENT } from "../companies";
 
@@ -63,30 +66,40 @@ export default function Group() {
         </Reveal>
 
         {/* children */}
-        <div className="grid gap-4 md:grid-cols-3">
-          {COMPANIES.map((c, i) => (
-            <Reveal key={c.key} delay={0.14 + i * 0.06}>
-              <div className="h-full rounded-xl border border-white/12 bg-white/[0.05] p-6 text-left backdrop-blur-sm transition-colors hover:border-white/25 hover:bg-white/[0.08]">
-                <div className="flex items-center gap-3">
-                  <Logo
-                    src={c.logo}
-                    name={c.name}
-                    initials={c.initials}
-                    size={34}
-                    invert
-                  />
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold">{c.name}</p>
-                    <p className="text-[0.7rem] text-white/45">{c.sector}</p>
-                  </div>
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
+          transition={{ staggerChildren: 0.1, delayChildren: 0.1 }}
+          className="grid gap-4 md:grid-cols-3"
+        >
+          {COMPANIES.map((c) => (
+            <motion.div
+              key={c.key}
+              variants={staggerItem}
+              whileHover={{ y: -6, scale: 1.015 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              className="h-full rounded-xl border border-white/12 bg-white/[0.05] p-6 text-left backdrop-blur-sm transition-colors hover:border-white/25 hover:bg-white/[0.08]"
+            >
+              <div className="flex items-center gap-3">
+                <Logo
+                  src={c.logo}
+                  name={c.name}
+                  initials={c.initials}
+                  size={34}
+                  invert
+                />
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-semibold">{c.name}</p>
+                  <p className="text-[0.7rem] text-white/45">{c.sector}</p>
                 </div>
-                <p className="mt-4 text-xs font-medium text-white/70">
-                  {c.role}
-                </p>
               </div>
-            </Reveal>
+              <p className="mt-4 text-xs font-medium text-white/70">
+                {c.role}
+              </p>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

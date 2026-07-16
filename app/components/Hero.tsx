@@ -32,10 +32,10 @@ export default function Hero() {
             alt=""
             aria-hidden
             onError={() => setImgOk(false)}
-    className="h-[120%] w-full object-cover opacity-60"
+            className="h-[120%] w-full object-cover opacity-35"
           />
         )}
-<div className="absolute inset-0 bg-gradient-to-b from-bg-deep/40 via-bg-deep/55 to-bg-deep" />
+        <div className="absolute inset-0 bg-gradient-to-b from-bg-deep/70 via-bg-deep/80 to-bg-deep" />
         <div
           className="absolute inset-0 opacity-[0.08]"
           style={{

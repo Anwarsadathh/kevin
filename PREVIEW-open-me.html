@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Kevin C. Philipose — Founder, Kwin Syndicate Holdings</title>
+<title>Kevin C Philipose — Founder, Kwin Syndicate Holdings</title>
 <style>
 :root{--bg:#fff;--bg-alt:#f8f8f6;--deep:#0f1729;--ink:#0f172a;--ink2:#475569;--ink3:#64748b;--line:#e8e8e4;--line2:#d9d9d3;--accent:#1d4ed8;--sky:#7dd3fc}
 *{margin:0;box-sizing:border-box}html{scroll-behavior:smooth}
@@ -38,6 +38,9 @@ h2{font-size:clamp(28px,4vw,38px);font-weight:600;line-height:1.15}
 @keyframes oa{50%{transform:translate(70px,50px)}}@keyframes ob{50%{transform:translate(-60px,60px)}}@keyframes oc{50%{transform:translate(50px,-60px)}}
 .hin{position:relative;z-index:5;width:100%;padding:130px 24px 150px;will-change:transform,opacity}
 .badge{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border-radius:999px;padding:6px 16px 6px 6px;font-size:12px;color:rgba(255,255,255,.8)}
+.badge2{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);backdrop-filter:blur(10px);border-radius:999px;padding:6px 12px 6px 6px}
+.badge2 .tagfounder{margin-left:10px;background:#fff;color:var(--deep);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border-radius:999px;padding:5px 10px}
+.badge2 .grpname{margin-left:10px;margin-right:6px;font-size:12px;font-weight:500;color:rgba(255,255,255,.7)}
 .badge .mono{width:26px;height:26px;border-radius:6px;display:grid;place-items:center;font-size:10px;font-weight:700;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25)}
 #hero h1{font-size:clamp(44px,8vw,72px);font-weight:600;line-height:1.04;margin-top:30px}
 .typedrow{margin-top:18px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:clamp(17px,2.6vw,24px);letter-spacing:.02em;color:rgba(255,255,255,.8);min-height:1.6em}
@@ -45,8 +48,9 @@ h2{font-size:clamp(28px,4vw,38px);font-weight:600;line-height:1.15}
 .caret{display:inline-block;margin-left:2px;color:rgba(255,255,255,.7);animation:blink 1s steps(1) infinite}
 @keyframes blink{50%,100%{opacity:0}}
 .hsub{max-width:640px;margin:26px auto 0;color:rgba(255,255,255,.6);font-size:17px;line-height:1.65}
-.hbtns{margin-top:38px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.bh{display:inline-flex;align-items:center;gap:6px;border-radius:10px;padding:13px 24px;font-size:14px;font-weight:500;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s,background .25s}
+.hbtns{margin-top:38px;display:flex;gap:10px;justify-content:center;flex-wrap:nowrap}
+.bh{display:inline-flex;align-items:center;gap:6px;border-radius:10px;padding:13px 24px;font-size:14px;font-weight:500;white-space:nowrap;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s,background .25s}
+@media(max-width:480px){.bh{padding:11px 16px;font-size:12.5px}}
 .bh.solid{background:#fff;color:var(--deep)}.bh.solid:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(255,255,255,.35)}
 .bh.ghost{border:1px solid rgba(255,255,255,.3);color:#fff;background:rgba(255,255,255,.06);backdrop-filter:blur(8px)}.bh.ghost:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
 .arr{display:inline-block;transform:translateX(-2px);opacity:.55;transition:.25s cubic-bezier(.22,1,.36,1)}
@@ -126,16 +130,39 @@ section.pad{padding:110px 0}
 .clink:hover{border-color:var(--line2);transform:translateX(4px)}
 footer{border-top:1px solid var(--line);padding:34px 0;font-size:13px;color:var(--ink3)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.fill{transform:scaleX(var(--w))}}
+
+.hbtn{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;z-index:80}
+.hbtn span{display:block;width:22px;height:1.5px;border-radius:2px;background:#fff;transition:.3s cubic-bezier(.22,1,.36,1)}
+#nav.sc .hbtn span,#nav.mopen .hbtn span{background:var(--ink)}
+#nav.mopen .hbtn span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+#nav.mopen .hbtn span:nth-child(2){opacity:0}
+#nav.mopen .hbtn span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+#mmenu{display:none;flex-direction:column;background:#fff;border-top:1px solid var(--line);padding:8px 24px 26px}
+#nav.mopen #mmenu{display:flex}
+#mmenu a{padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;font-weight:500;color:var(--ink);opacity:0;transform:translateX(-14px);transition:.35s cubic-bezier(.22,1,.36,1)}
+#nav.mopen #mmenu a{opacity:1;transform:none}
+#mmenu a:nth-child(1){transition-delay:.05s}#mmenu a:nth-child(2){transition-delay:.1s}
+#mmenu a:nth-child(3){transition-delay:.15s}#mmenu a:nth-child(4){transition-delay:.2s}
+#mmenu a.cta{margin-top:14px;border:none;text-align:center;border-radius:10px;background:var(--ink);color:#fff;padding:13px}
+@media(max-width:820px){#nav .links{display:none}.hbtn{display:flex}}
+@media(max-width:820px){.card:hover,.award:hover,.clink:hover{transform:none}}
+
 </style></head><body>
 <div id="prog"></div>
 
 <header id="nav"><div class="in">
-  <a href="#top" class="brand"><span class="mono">KCP</span> Kevin C. Philipose</a>
+  <a href="#top" class="brand"><span class="mono">KCP</span> Kevin C Philipose</a>
   <nav class="links">
     <a href="#group">Group</a><a href="#about">About</a><a href="#ventures">Ventures</a><a href="#journey">Journey</a>
     <a href="#connect" class="cta">Get in touch</a>
   </nav>
-</div></header>
+  <button class="hbtn" id="hbtn" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+<div id="mmenu">
+  <a href="#group">Group</a><a href="#about">About</a><a href="#ventures">Ventures</a><a href="#journey">Journey</a>
+  <a href="#connect" class="cta">Get in touch</a>
+</div>
+</header>
 
 <section id="hero"><a id="top"></a>
   <div class="hbg" id="hbg">
@@ -144,13 +171,13 @@ footer{border-top:1px solid var(--line);padding:34px 0;font-size:13px;color:var(
     <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
   </div>
   <div class="hin" id="hin">
-    <div class="rv"><span class="badge"><span class="mono">KS</span> Founder · Kwin Syndicate Holdings</span></div>
-    <h1 class="rv" style="transition-delay:.08s">Kevin C. Philipose</h1>
+    <div class="rv"></div>
+    <h1 class="rv" style="transition-delay:.08s">Kevin C Philipose</h1>
     <p class="typedrow rv" style="transition-delay:.16s"><span class="typed" id="typed"></span><span class="caret">|</span></p>
     <p class="hsub rv" style="transition-delay:.24s">Founder of Kwin Syndicate Holdings — the group behind LearnScape Edu, Invest Better, and Caffè Latte Lounge. Building businesses that solve real problems since age 18.</p>
     <div class="hbtns rv" style="transition-delay:.32s">
       <a class="bh solid" href="#connect">Get in touch <span class="arr">→</span></a>
-      <a class="bh ghost" href="#group">Explore the group <span class="arr">→</span></a>
+      <a class="bh ghost" href="#group">Explore <span class="arr">→</span></a>
     </div>
     <dl class="hstats rv" style="transition-delay:.4s">
       <div><dt data-count>500+</dt><dd>Colleges partnered</dd></div>
@@ -172,7 +199,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;font-size:13px;color:var(
   <div class="orgchart rv" style="transition-delay:.1s">
     <div class="node"><div style="display:flex;align-items:center;gap:14px"><span class="mono">KS</span>
       <div style="text-align:left"><p style="font-weight:600">Kwin Syndicate Holdings Pvt. Ltd.</p>
-      <p style="font-size:12px;color:rgba(255,255,255,.5)">Parent company · Founded by Kevin C. Philipose</p></div></div></div>
+      <p style="font-size:12px;color:rgba(255,255,255,.5)">Parent company · Founded by Kevin C Philipose</p></div></div></div>
     <div class="vline"></div>
     <div class="kids">
       <div class="kid"><span class="mono">LS</span><h3 style="margin-top:14px;font-size:16px">LearnScape Edu Pvt. Ltd.</h3><p style="margin-top:6px;font-size:13px;color:rgba(255,255,255,.55)">EdTech · Founder &amp; CEO · 500+ partner colleges</p></div>
@@ -222,7 +249,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;font-size:13px;color:var(
   <div class="qbg" id="qbg"><div class="grid-ov"></div><div class="orb a" style="opacity:.3"></div><div class="orb b" style="opacity:.3"></div></div>
   <div class="rv"><span class="qm">“</span>
   <blockquote>Great businesses are created by solving meaningful problems, embracing innovation, and delivering value with integrity.</blockquote>
-  <p class="who">Kevin C. Philipose · Founder, Kwin Syndicate Holdings</p></div>
+  <p class="who">Kevin C Philipose · Founder, Kwin Syndicate Holdings</p></div>
 </section>
 
 <section class="pad" id="journey"><div class="wrap">
@@ -253,14 +280,14 @@ footer{border-top:1px solid var(--line);padding:34px 0;font-size:13px;color:var(
     <p class="rv" style="margin-top:26px;color:var(--ink2);transition-delay:.08s">For partnerships, consulting, or media — reach out directly. Based in India, working nationally.</p>
   </div>
   <div class="clinks rv" style="transition-delay:.12s">
-    <a class="clink" href="mailto:learnscapeinfo@gmail.com"><span>Email</span><span style="color:var(--ink3)">learnscapeinfo@gmail.com →</span></a>
-    <a class="clink" href="https://instagram.com/learn_scape_" target="_blank" rel="noopener"><span>Instagram</span><span style="color:var(--ink3)">@learn_scape_ →</span></a>
+    <a class="clink" href="mailto:kevincphilipose2004@gmail.com"><span>Email</span><span style="color:var(--ink3)">kevincphilipose2004@gmail.com →</span></a>
+    <a class="clink" href="https://www.instagram.com/iamkwinn" target="_blank" rel="noopener"><span>Instagram</span><span style="color:var(--ink3)">@iamkwinn →</span></a>
     <a class="clink" href="https://learnscapeedu.com" target="_blank" rel="noopener"><span>LearnScape Edu</span><span style="color:var(--ink3)">learnscapeedu.com →</span></a>
   </div>
 </div></section>
 
 <footer><div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:gap">
-  <span>© 2026 Kevin C. Philipose · Kwin Syndicate Holdings Pvt. Ltd.</span><a href="#top">Back to top ↑</a>
+  <span>© 2026 Kevin C Philipose · Kwin Syndicate Holdings Pvt. Ltd.</span><a href="#top">Back to top ↑</a>
 </div></footer>
 
 <script>
@@ -268,6 +295,9 @@ footer{border-top:1px solid var(--line);padding:34px 0;font-size:13px;color:var(
 const mq=document.getElementById('mq');mq.innerHTML=mq.innerHTML.repeat(4);
 // nav + progress + hero parallax
 const nav=document.getElementById('nav'),prog=document.getElementById('prog'),hbg=document.getElementById('hbg'),hin=document.getElementById('hin');
+const hbtn=document.getElementById('hbtn');
+hbtn.addEventListener('click',()=>{const isOpen=nav.classList.toggle('mopen');document.body.style.overflow=isOpen?'hidden':''});
+document.querySelectorAll('#mmenu a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('mopen');document.body.style.overflow=''}));
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 addEventListener('scroll',()=>{const y=scrollY,h=document.documentElement;
   nav.classList.toggle('sc',y>60);
