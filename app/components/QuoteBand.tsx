@@ -1,19 +1,38 @@
 "use client";
 
+import { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Reveal from "./Reveal";
 
 export default function QuoteBand() {
   const ref = useRef<HTMLElement>(null);
+  const [imgOk, setImgOk] = useState(true);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], [-90, 90]);
+  const imgY = useTransform(scrollYProgress, [0, 1], [-60, 60]);
 
   return (
     <section ref={ref} className="relative overflow-hidden bg-bg-deep px-6 py-32">
+      {/* background photo — drop /public/quote-bg.jpg to enable, otherwise this
+          layer stays invisible and the grid + orbs carry the section */}
+      {imgOk && (
+        <motion.div style={{ y: imgY }} className="absolute inset-[-80px]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/quote-bg.jpg"
+            alt=""
+            aria-hidden
+            onError={() => setImgOk(false)}
+            className="h-full w-full object-cover opacity-60"
+          />
+        </motion.div>
+      )}
+   <div className="absolute inset-0 bg-gradient-to-b from-bg-deep/40 via-bg-deep/55 to-bg-deep/40" />
+
       <motion.div style={{ y }} className="absolute inset-[-120px]">
         <div
           className="absolute inset-0 opacity-[0.07]"

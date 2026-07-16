@@ -17,7 +17,7 @@ export const PARENT = {
   name: "Kwin Syndicate Holdings Pvt. Ltd.",
   short: "Kwin Syndicate Holdings",
   initials: "KS",
-  logo: undefined as string | undefined,
+  logo: "/logos/kwin.jpg" as string | undefined,   // ← change this line
   role: "Founder",
   blurb:
     "The holding company behind every venture — a group built to solve meaningful problems across education, consulting, and hospitality through innovation, technology, and strategic execution.",

@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Reveal, { staggerItem } from "./Reveal";
+import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import Logo from "./Logo";
 import { COMPANIES } from "../companies";
+
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 export default function Ventures() {
   return (
@@ -20,19 +22,16 @@ export default function Ventures() {
           </p>
         </Reveal>
 
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
-          transition={{ staggerChildren: 0.12 }}
-          className="mt-12 grid gap-6 md:grid-cols-3"
-        >
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
           {COMPANIES.map((c) => (
             <motion.article
               key={c.key}
-              variants={staggerItem}
+              initial={{ opacity: 0, y: 56, scale: 0.95, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+              viewport={{ once: true, amount: 0.3, margin: "0px 0px -10% 0px" }}
+              transition={{ duration: 0.9, ease: EASE }}
               whileHover={{ y: -8 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              whileTap={{ scale: 0.98 }}
               className="card flex h-full flex-col overflow-hidden"
             >
               <div className="relative aspect-[16/10] overflow-hidden border-b border-line bg-bg-alt">
@@ -87,7 +86,7 @@ export default function Ventures() {
               </div>
             </motion.article>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,16 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Reveal, { RevealSide, staggerItem } from "./Reveal";
+import  { RevealSide, staggerItem } from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
 const ACHIEVEMENTS = [
+  "Entered the Indian stock market as a trader at age 18",
+  "Created ventures across education, consulting, and hospitality before age 21",
   "Built partnerships with 500+ colleges and universities across India",
   "Founded LearnScape Edu, Invest Better, and Caffè Latte Lounge",
   "Developed LearnScapeEdu.com — a platform for direct college admissions",
   "Built one of India's fastest-growing education consultancy networks",
-  "Created ventures across education, consulting, and hospitality before age 21",
-  "Entered the Indian stock market as a trader at age 18",
 ];
 
 export default function Recognition() {

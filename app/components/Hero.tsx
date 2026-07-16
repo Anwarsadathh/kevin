@@ -14,6 +14,26 @@ const STATS = [
   ["4", "Years building"],
 ];
 
+const NAME_WORDS = ["Kevin", "C", "Philipose"];
+
+const nameContainer = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.12, delayChildren: 0.15 },
+  },
+};
+
+const nameWord = {
+  hidden: { opacity: 0, y: 34, rotateX: -60, filter: "blur(10px)" },
+  show: {
+    opacity: 1,
+    y: 0,
+    rotateX: 0,
+    filter: "blur(0px)",
+    transition: { duration: 0.75, ease: [0.16, 1, 0.3, 1] as const },
+  },
+};
+
 export default function Hero() {
   const [imgOk, setImgOk] = useState(true);
   const { scrollY } = useScroll();
@@ -35,7 +55,7 @@ export default function Hero() {
             className="h-[120%] w-full object-cover opacity-60"
           />
         )}
-<div className="absolute inset-0 bg-gradient-to-b from-bg-deep/40 via-bg-deep/55 to-bg-deep" />
+        <div className="absolute inset-0 bg-gradient-to-b from-bg-deep/40 via-bg-deep/55 to-bg-deep" />
         <div
           className="absolute inset-0 opacity-[0.08]"
           style={{
@@ -54,19 +74,33 @@ export default function Hero() {
         style={{ y: fgY, opacity: fade }}
         className="relative z-10 mx-auto w-full max-w-6xl px-6 py-32 text-center text-white"
       >
-        <Reveal delay={0.1}>
-          <h1 className="mx-auto mt-8 max-w-4xl text-5xl font-semibold leading-[1.04] md:text-7xl">
-            Kevin C Philipose
-          </h1>
-        </Reveal>
+        <motion.h1
+          variants={nameContainer}
+          initial="hidden"
+          animate="show"
+          style={{ perspective: 800 }}
+          className="mx-auto mt-8 max-w-4xl text-5xl font-semibold leading-[1.04] md:text-7xl"
+        >
+          {NAME_WORDS.map((w, i) => (
+            <span key={w} className="inline-block overflow-hidden pb-1 align-top">
+              <motion.span
+                variants={nameWord}
+                className="name-shine inline-block"
+              >
+                {w}
+                {i < NAME_WORDS.length - 1 ? "\u00A0" : ""}
+              </motion.span>
+            </span>
+          ))}
+        </motion.h1>
 
-        <Reveal delay={0.2}>
+        <Reveal delay={0.65}>
           <p className="mt-5 font-mono text-lg tracking-wide text-white/80 md:text-2xl">
             <Typed />
           </p>
         </Reveal>
 
-        <Reveal delay={0.3}>
+        <Reveal delay={0.72}>
           <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-white/60 md:text-lg">
             Founder of Kwin Syndicate Holdings — the group behind LearnScape
             Edu, Invest Better, and Caffè Latte Lounge. Building businesses
@@ -74,7 +108,7 @@ export default function Hero() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.4}>
+        <Reveal delay={0.78}>
           <div className="mt-10 flex flex-row justify-center gap-2.5 sm:gap-3">
             <a href="#connect" className="btn-hero-solid group whitespace-nowrap px-4 text-[13px] sm:px-6 sm:text-sm">
               Get in touch <span className="btn-arrow">→</span>
@@ -85,7 +119,7 @@ export default function Hero() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.5}>
+        <Reveal delay={0.85}>
           <dl className="mx-auto mt-16 grid max-w-xl grid-cols-3 gap-6 border-t border-white/15 pt-8">
             {STATS.map(([n, l]) => (
               <div key={l}>

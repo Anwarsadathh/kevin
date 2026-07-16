@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Logo from "./Logo";
-import { PARENT } from "../companies";
 
 const LINKS = [
   ["#group", "Group"],
@@ -42,22 +40,14 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <Logo
-            src={PARENT.logo}
-            name={PARENT.short}
-            initials="KCP"
-            size={30}
-            invert={!dark}
-            className="rounded-lg"
-          />
-          <span
-            className={`text-sm font-semibold tracking-tight transition-colors ${
-              dark ? "text-ink" : "text-white"
-            }`}
-          >
-            Kevin C Philipose
-          </span>
+        <a
+          href="#top"
+          onClick={() => setOpen(false)}
+          className={`text-base font-semibold tracking-tight transition-colors sm:text-lg ${
+            dark ? "text-ink" : "text-white"
+          }`}
+        >
+          Kevin C Philipose
         </a>
 
         {/* desktop links */}

@@ -30,7 +30,7 @@ export default function Logo({
         alt={`${name} logo`}
         width={size}
         height={size}
-        className={`object-contain ${invert ? "brightness-0 invert" : ""} ${className}`}
+        className={`object-contain ${className}`}
       />
     );
   }
