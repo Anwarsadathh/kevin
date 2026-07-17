@@ -268,17 +268,6 @@ h3 {
 @keyframes orb-b { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-60px,60px)} }
 @keyframes orb-c { 0%,100%{transform:translate(0,0)} 50%{transform:translate(50px,-60px)} }
 
-/* blinking caret for typed text */
-@keyframes caret-blink { 0%,45%{opacity:1} 50%,100%{opacity:0} }
-.caret { display:inline-block; margin-left:2px; animation: caret-blink 1s steps(1) infinite; color: rgba(255,255,255,.7); }
-
-/* wave animation for the typed role letters */
-@keyframes letter-wave {
-  0%, 100% { transform: translateY(0) scale(1); color: #7dd3fc; text-shadow: 0 0 0 rgba(125,211,252,0); }
-  50% { transform: translateY(-13px) scale(1.18); color: #ffffff; text-shadow: 0 0 16px rgba(125,211,252,0.9); }
-}
-.letter-wave { display: inline-block; animation: letter-wave 1.5s ease-in-out infinite; }
-
 /* scroll cue — mouse outline with falling dot */
 .scroll-cue { width: 26px; height: 42px; border: 2px solid rgba(255,255,255,.4); border-radius: 14px; position: relative; }
 .scroll-cue::after { content:""; position:absolute; left:50%; top:8px; width:4px; height:8px; margin-left:-2px;
@@ -296,7 +285,7 @@ h3 {
 @supports (-webkit-touch-callout: none) { .band-fixed { background-attachment: scroll; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .orb-a,.orb-b,.orb-c,.caret,.scroll-cue::after,.letter-wave { animation: none; }
+  .orb-a,.orb-b,.orb-c,.scroll-cue::after { animation: none; }
   .bar-fill { transform: scaleX(var(--w,1)); transition: none; }
   .btn-hero-solid:hover,.btn-hero-ghost:hover { transform: none; }
 }

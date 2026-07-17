@@ -36,6 +36,19 @@ const CHANNELS = [
       </>
     ),
   },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/kevincphilipose",
+    href: "https://www.linkedin.com/in/kevincphilipose",
+    external: true,
+    icon: (
+      <>
+        <rect x="3.5" y="3.5" width="17" height="17" rx="3.5" />
+        <circle cx="7.5" cy="7" r="0.9" fill="currentColor" stroke="none" />
+        <path d="M7.5 10v6.5M11 16.5v-4a2.2 2.2 0 0 1 4.4 0v4M11 10v6.5" />
+      </>
+    ),
+  },
 ];
 
 export default function Contact() {

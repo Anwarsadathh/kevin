@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const ROLES = [
   "Entrepreneur.",
@@ -9,47 +10,30 @@ const ROLES = [
   "Education Innovator.",
 ];
 
+const EASE = [0.16, 1, 0.3, 1] as const;
+
 export default function Typed() {
   const [i, setI] = useState(0);
-  const [text, setText] = useState("");
-  const [del, setDel] = useState(false);
 
   useEffect(() => {
-    const full = ROLES[i];
-    const t = setTimeout(
-      () => {
-        if (!del) {
-          const next = full.slice(0, text.length + 1);
-          setText(next);
-          if (next === full) setTimeout(() => setDel(true), 1600);
-        } else {
-          const next = full.slice(0, text.length - 1);
-          setText(next);
-          if (next === "") {
-            setDel(false);
-            setI((v) => (v + 1) % ROLES.length);
-          }
-        }
-      },
-      del ? 34 : 62
-    );
-    return () => clearTimeout(t);
-  }, [text, del, i]);
+    const t = setInterval(() => setI((v) => (v + 1) % ROLES.length), 2600);
+    return () => clearInterval(t);
+  }, []);
 
   return (
-    <span className="font-display font-bold tracking-wide text-sky-300">
-      {text.split("").map((ch, idx) => (
-        <span
-          key={idx}
-          className="letter-wave"
-          style={{ animationDelay: `${idx * 0.07}s` }}
+    <span className="inline-block overflow-hidden align-top">
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={ROLES[i]}
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -18 }}
+          transition={{ duration: 0.5, ease: EASE }}
+          className="inline-block font-display font-bold uppercase tracking-widest text-sky-300"
         >
-          {ch === " " ? " " : ch}
-        </span>
-      ))}
-      <span className="caret" aria-hidden>
-        |
-      </span>
+          {ROLES[i]}
+        </motion.span>
+      </AnimatePresence>
     </span>
   );
 }
