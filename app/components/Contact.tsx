@@ -56,11 +56,11 @@ export default function Contact() {
     <>
       <section
         id="connect"
-        className="border-t border-line bg-bg-alt px-6 py-24 md:py-28"
+        className="overflow-hidden border-t border-line bg-bg-alt px-6 py-24 md:py-28"
       >
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-10 md:grid-cols-12">
-            <RevealSide from="left" className="md:col-span-5">
+            <RevealSide from="left" className="min-w-0 md:col-span-5">
               <SectionHeading eyebrow="Connect">
                 Let&rsquo;s build something together
               </SectionHeading>
@@ -88,7 +88,7 @@ export default function Contact() {
             <RevealSide
               from="right"
               delay={0.06}
-              className="md:col-span-6 md:col-start-7"
+              className="min-w-0 md:col-span-6 md:col-start-7"
             >
               <div className="overflow-hidden rounded-2xl border border-line bg-white shadow-[0_18px_44px_-20px_rgba(15,23,42,0.12)]">
                 {CHANNELS.map((c, i) => (
